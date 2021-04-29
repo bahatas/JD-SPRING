@@ -21,6 +21,9 @@ public class Java implements Course {
     @Value("${days}")
     private String[] days;
 
+    @Value("${numbers}")
+    private int [] numbers;
+
 
     @Override
     public String toString() {
@@ -28,6 +31,8 @@ public class Java implements Course {
                 "batch='" + batch + '\'' +
                 ", instructor='" + instructor + '\'' +
                 ", days=" + Arrays.toString(days) +
+                ", numbers=" + Arrays.toString(numbers) +
+                ", extraSessions=" + extraSessions +
                 '}';
     }
 
