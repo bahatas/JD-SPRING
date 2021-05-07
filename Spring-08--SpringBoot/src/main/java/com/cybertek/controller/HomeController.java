@@ -52,4 +52,20 @@ public class HomeController {
         System.out.println("email = " + email);
         return "home";
     }
+
+
+    @GetMapping("/home/course")
+    public String requestParamEx(@RequestParam("course") String course){
+
+        System.out.println("course = " + course);
+        return "home";
+    }
+
+    @GetMapping(value = "/course")
+    public String requestParamEx2(@RequestParam(value = "name",required = false,defaultValue = "cybertek") String name){
+
+        System.out.println("name = " + name);
+        return "home";
+    }
+
 }
