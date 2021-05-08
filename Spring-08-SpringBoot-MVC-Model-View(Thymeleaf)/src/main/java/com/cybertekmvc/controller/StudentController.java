@@ -16,19 +16,19 @@ import java.util.Random;
 public class StudentController {
 
     @GetMapping("/welcome")
-    public String homePage(Model model){
+    public String homePage(Model model) {
 
-        model.addAttribute("text","This line comes from Controller java class as  text");
-        model.addAttribute("name","Cybertek");
-        model.addAttribute("course","Selenium");
+        model.addAttribute("text", "This line comes from Controller java class as  text");
+        model.addAttribute("name", "Cybertek");
+        model.addAttribute("course", "Selenium");
 
-        String subject ="Collections";
-        model.addAttribute("subject",subject);
+        String subject = "Collections";
+        model.addAttribute("subject", subject);
 
         //create a some radnom students ()0-1000 and show them in your UI
 
         int studentId = new Random().nextInt(1000);
-        model.addAttribute("studentid",studentId);
+        model.addAttribute("studentid", studentId);
 
         List<Integer> numbers = new ArrayList<>();
         numbers.add(5);
@@ -37,27 +37,27 @@ public class StudentController {
         numbers.add(140);
         numbers.add(700);
 
-        model.addAttribute("numbersArray",numbers);
+        model.addAttribute("numbersArray", numbers);
 
         //print your birthday
         LocalDate birthday = LocalDate.now().minusYears(34);
-        model.addAttribute("birthday",birthday);
+        model.addAttribute("birthday", birthday);
 
-        Student student = new Student(1,"Mike","Smith");
-        model.addAttribute("student",student);
-
-
-
-
-
-
-
+        Student student = new Student(1, "Mike", "Smith");
+        model.addAttribute("student", student);
 
 
 
 
 
         return "student/welcome";
+    }
+
+    @GetMapping("/register")
+    public String homePage2 () {
+
+
+        return "student/register";
     }
 
 }
