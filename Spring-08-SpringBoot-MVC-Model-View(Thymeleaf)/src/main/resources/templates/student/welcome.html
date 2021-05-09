@@ -35,6 +35,14 @@
 <a th:href="@{/student/welcome(id=3)}">Parameter Link</a>
 <a th:href="@{/student/welcome(id=${student.id})}">Parameter Link with student.id</a>
 
+<!--iteration  -->
+<ul>
+    <li th:each="numbers : ${numbersArray}" th:text="${numbersArray}"></li>
+
+</ul>
+
+<!--Fragment  -->
+<div th:replace="fragments/footer::cybertek"> footer <html></html></div>
 
 
 
