@@ -14,7 +14,7 @@ public class MentorController {
 
 
 
-        return null;
+        return "mentor/mentor-register";
 
     }
 }
