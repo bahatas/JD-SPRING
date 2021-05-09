@@ -27,7 +27,13 @@
 
 <!-- Link -->
 <a th:href="@{https://www.google.com/}">G O O G L E_ LINK</a>
+<BR>
+<a th:href="@{/student/register}">REGISTER PAGE LINK</a>
+<BR>
 
+<!-- Adding parameters to link -->
+<a th:href="@{/student/welcome(id=3)}">Parameter Link</a>
+<a th:href="@{/student/welcome(id=${student.id})}">Parameter Link with student.id</a>
 
 
 
