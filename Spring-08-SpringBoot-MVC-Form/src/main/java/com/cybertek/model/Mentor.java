@@ -10,7 +10,7 @@ import lombok.*;
 @ToString
 public class Mentor {
 
-    private String firstanme;
+    private String firstname;
     private String lastname;
     private String email;
     private String gender;

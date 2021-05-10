@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mentor Registration</title>
+</head>
+<body>
+
+<h1 style="color: darkgreen"  align="CENTER">MENTOR REGISTRATION PAGE</h1>
+
+
+<form action="/mentor/confirm" method="post" th:object="${mentor}" >
+    <div>
+        <label>First name:</label>
+        <input type="text" id="firstname" th:field="*{firstname}">
+
+        <label>Last name:</label>
+        <input type="text" id="lastname"  th:field="*{lastname}">
+
+    </div>
+    <br>
+    <div>
+        <label>Email :</label>
+        <input type="text" id="email" th:field="*{email}">
+
+        <label>Graduated </label>
+        <input type="checkbox" id="graduated"  th:field="*{graduated}"><br>
+
+        <label> Gender </label>
+        <input type="radio" id="genderMale" value="Male" th:field="*{gender}" required="required" >Male
+        <input type="radio" id="genderFemale"  value="Female" th:field="*{gender}">Female<br>
+
+
+
+    </div>
+    <br>
+    <div>
+        <label> Batch Number :</label>
+        <select th:field="*{batch}">
+            <option th:each="theBatch:${batchList}" th:value="${theBatch}" th:text="${theBatch}" ></option>
+
+        </select>
+        <br>
+        <label>Company </label>
+        <textarea type="text" id="company" th:field="*{company}"></textarea>
+
+
+    </div>
+
+    <button type="submit" style="color: darkred"> Register </button>
+
+</form>
+
+</body>
+</html>
