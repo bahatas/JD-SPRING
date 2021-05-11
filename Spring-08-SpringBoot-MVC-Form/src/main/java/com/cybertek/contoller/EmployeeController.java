@@ -1,6 +1,7 @@
 package com.cybertek.contoller;
 
 
+import com.cybertek.dataGenerator.DataGenerator;
 import com.cybertek.model.Employee;
 
 import org.springframework.stereotype.Controller;
@@ -12,11 +13,13 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/employee")
 public class EmployeeController {
 
-    //@GetMapping("/create")
-    @RequestMapping(value = "/create",method = RequestMethod.GET)
+    @GetMapping("/create")
+   // @RequestMapping(value = "/create",method = RequestMethod.GET)
     public String createEmployee(Model model){
 
+
         model.addAttribute("employeeAttribute",new Employee());
+        model.addAttribute("stateListAttribute", DataGenerator.getStateList());
 
         System.out.println("Employee creator");
         return "employee/employee-creator";
