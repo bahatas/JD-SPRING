@@ -3,6 +3,7 @@ package com.cybertek.model;
 
 import lombok.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @NoArgsConstructor
@@ -14,7 +15,7 @@ public class Employee {
 
     private String firstname;
     private String lastname;
-    private Date birthday;
+    private String birthday;
     private String email;
     private String password;
     private String address;
@@ -22,4 +23,9 @@ public class Employee {
     private String city;
     private String state;
     private String zip;
+
+
+   /* public int ageCalculator(){
+        return LocalDate.now().getYear()- getBirthday().getYear();
+    }*/
 }

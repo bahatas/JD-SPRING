@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -30,51 +30,51 @@
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label for="inputEmail4">First Name</label>
-                        <input type="text" class="form-control" id="firstname" th:field="*{employeeAttribute.firstname}" placeholder="firstname"  >
+                        <input type="text" class="form-control" id="firstname" th:field="*{firstname}" placeholder="firstname"  >
                     </div>
                     <div class="form-group col-md-4">
                         <label for="inputPassword4">Last Name</label>
-                        <input type="text" class="form-control" id="lastname" th:field="*{employeeAttribute.lastname}" placeholder="lastname">
+                        <input type="text" class="form-control" id="lastname" th:field="*{lastname}" placeholder="lastname">
                     </div>
                     <div class="form-group col-md-4">
                         <label for="inputPassword4">BirthDay</label>
-                        <input type="date" class="form-control" id="birthday" th:field="*{employeeAttribute.birthday}">
+                        <input type="date" class="form-control" id="birthday" th:field="*{birthday}">
                     </div>
 
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputEmail4">Email</label>
-                        <input type="email" class="form-control" id="inputEmail4"  th:field="*{employeeAttribute.birthday}" placeholder="Email">
+                        <input type="email" class="form-control" id="inputEmail4"  th:field="*{email}" placeholder="Email">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="inputPassword4">Password</label>
-                        <input type="password" class="form-control" id="inputPassword4"  th:field="*{employeeAttribute.birthday}" placeholder="Password">
+                        <input type="password" class="form-control" id="inputPassword4"  th:field="*{password}" placeholder="Password">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputAddress">Address</label>
-                    <input type="text" class="form-control" id="inputAddress" th:field="*{employeeAttribute.birthday}" placeholder="1234 Main St">
+                    <input type="text" class="form-control" id="inputAddress" th:field="*{address}" placeholder="1234 Main St">
                 </div>
                 <div class="form-group">
                     <label for="inputAddress2">Address 2</label>
-                    <input type="text" class="form-control" id="inputAddress2" th:field="*{employeeAttribute.birthday}" placeholder="Apartment, studio, or floor">
+                    <input type="text" class="form-control" id="inputAddress2" th:field="*{address2}" placeholder="Apartment, studio, or floor">
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputCity">City</label>
-                        <input type="text" class="form-control" th:field="*{employeeAttribute.birthday}" id="inputCity">
+                        <input type="text" class="form-control" th:field="*{city}" id="inputCity">
                     </div>
                     <div class="form-group col-md-4">
                         <label for="inputState">State</label>
-                        <select id="inputState" class="form-control" th:field="${stateListAttribute}">
-                            <option th:each="state:${stateListAttribute}" th:text="${stateListAttribute}" selected>Choose...</option>
+                        <select id="inputState" class="form-control" th:field="*{state}">
+                            <option th:each="states:${stateListAttribute}" th:value="${states}" th:text="${states}" selected>Choose...</option>
 
                         </select>
                     </div>
                     <div class="form-group col-md-2">
                         <label for="inputZip">Zip</label>
-                        <input type="text" class="form-control" id="inputZip" th:field="*{employeeAttribute.birthday}" >
+                        <input type="text" class="form-control" id="inputZip" th:field="*{zip}" >
                     </div>
                 </div>
                 <div class="form-group">
@@ -85,7 +85,7 @@
                         </label>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Sign in</button>
+                <button type="submit" class="btn btn-primary">Register</button>
             </form>
         </div>
     </div>
