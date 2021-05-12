@@ -42,6 +42,6 @@ public class EmployeeController {
 
 
 
-        return "employee/employee-show";
+        return "employee/employee-list";
     }
 }
