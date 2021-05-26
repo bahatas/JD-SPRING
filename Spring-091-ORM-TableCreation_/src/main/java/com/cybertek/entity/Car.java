@@ -2,7 +2,7 @@ package com.cybertek.entity;
 
 
 
-import javax.annotation.Generated;
+
 import javax.persistence.*;
 
 @Entity
