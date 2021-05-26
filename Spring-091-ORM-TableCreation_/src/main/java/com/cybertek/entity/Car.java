@@ -1,10 +1,13 @@
 package com.cybertek.entity;
 
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+
+import javax.annotation.Generated;
+import javax.persistence.*;
 
 @Entity
+@Table(name="cars")
+
 public class Car {
 
 
