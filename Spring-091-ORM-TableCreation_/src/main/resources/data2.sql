@@ -10,6 +10,6 @@
 insert into students(first_name,last_name,email) VALUES  ('Mike','Smith','mike@cybertekschool.com');
 insert into students(first_name,last_name,email) VALUES  ('Adam','Shaun','Adam@cybertekschool.com');
 insert into students(first_name,last_name,email) VALUES  ('Tom','Eddy','Tom@cybertekschool.com');
-insert into students(first_name,last_name,email) VALUES  ('brad','ertds','brad@cybertekschool.com');
-insert into students(first_name,last_name,email) VALUES  ('Sam','kuhf','kuhf@cybertekschool.com');
-insert into students(first_name,last_name,email) VALUES  ('Matt','Brandd','Brandd@cybertekschool.com');
+insert into students(first_name,last_name,email) VALUES  ('brad','brady','brad@cybertekschool.com');
+insert into students(first_name,last_name,email) VALUES  ('Sam','sammy','kuhf@cybertekschool.com');
+insert into students(first_name,last_name,email) VALUES  ('Matt','matty','Brandd@cybertekschool.com');
