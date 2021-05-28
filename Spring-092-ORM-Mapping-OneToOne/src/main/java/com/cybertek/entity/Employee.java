@@ -33,7 +33,12 @@ public class Employee extends BaseEntity{
     private int salary;
 
 
-    //Dummy data will be created so we need constructor
+    @OneToOne
+    @JoinColumn(name="deparment_id")
+    private Department departmentId;
+
+
+//    Dummy data will be created so we need constructor
 
 
     public Employee(String firstName, String lastName, String email, LocalDate hireDate, Gender gender, int salary) {
@@ -41,7 +46,6 @@ public class Employee extends BaseEntity{
         this.lastName = lastName;
         this.email = email;
         this.hireDate = hireDate;
-        this.department = department;
         this.gender = gender;
         this.salary = salary;
     }
