@@ -33,7 +33,7 @@ public class Employee extends BaseEntity{
     private int salary;
 
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE,CascadeType.PERSIST}, fetch= FetchType.EAGER)
     @JoinColumn(name="department_id")
     private Department department;
 

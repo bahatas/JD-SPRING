@@ -51,10 +51,10 @@ public class DataGenerator  implements CommandLineRunner {
 
 
         e1.setDepartment(d1);
-        e2.setDepartment(d2);
-        e3.setDepartment(d3);
+        e2.setDepartment(d1);
+        e3.setDepartment(d1);
         e4.setDepartment(d4);
-        e5.setDepartment(d5);
+        e5.setDepartment(d4);
 
         e1.setRegion(r1);
         e2.setRegion(r2);
@@ -70,6 +70,9 @@ public class DataGenerator  implements CommandLineRunner {
 
        employeeRepository.saveAll(employeeList);
        departmentRepository.saveAll(departmentList);
+
+
+       employeeRepository.deleteById(1);
     }
 
 
