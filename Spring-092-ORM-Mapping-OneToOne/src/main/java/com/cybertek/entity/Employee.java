@@ -2,7 +2,7 @@ package com.cybertek.entity;
 
 
 import com.cybertek.util.Gender;
-import lombok.AllArgsConstructor;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -26,16 +26,20 @@ public class Employee extends BaseEntity{
     private String lastName;
     private String email;
     private LocalDate hireDate;
-    private String department;
+
 
     @Enumerated(EnumType.STRING)
     private Gender gender;
     private int salary;
 
 
-    @OneToOne
-    @JoinColumn(name="deparment_id")
-    private Department departmentId;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="department_id")
+    private Department department;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "regions")
+    private Region region;
 
 
 //    Dummy data will be created so we need constructor
@@ -49,6 +53,7 @@ public class Employee extends BaseEntity{
         this.gender = gender;
         this.salary = salary;
     }
+
 
 
 }
