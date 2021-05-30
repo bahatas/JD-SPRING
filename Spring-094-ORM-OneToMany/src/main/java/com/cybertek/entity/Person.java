@@ -18,12 +18,17 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private  String firstName;
-    private  String lastName;
+    private String firstName;
+    private String lastName;
 
 
-    @OneToMany
+    @OneToMany(mappedBy = "person")
     private List<Adress> adress;
+
+
+//    @OneToMany(cascade = CascadeType.ALL)
+//    private List<Adress> adress;
+
 
     public Person(String firstName, String lastName) {
         this.firstName = firstName;
