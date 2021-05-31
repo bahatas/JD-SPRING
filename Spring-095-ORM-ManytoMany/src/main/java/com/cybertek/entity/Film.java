@@ -6,6 +6,7 @@ import lombok.Setter;
 import sun.security.x509.CertificateIssuerName;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 
@@ -22,9 +23,14 @@ public class Film {
     private String title;
     private String description;
 
-    @ManyToMany(mappedBy = "film")
-    private Set<Cinema> cinema;
+    @ManyToMany(mappedBy = "film", cascade = CascadeType.ALL)
+    private Set<Cinema> cinema= new HashSet<>();
 
+
+    public Film(String title, String description) {
+        this.title = title;
+        this.description = description;
+    }
 }
 
 
