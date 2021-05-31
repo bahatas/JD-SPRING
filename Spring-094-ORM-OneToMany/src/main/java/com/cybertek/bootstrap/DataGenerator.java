@@ -6,7 +6,10 @@ import com.cybertek.repository.AdressRepository;
 import com.cybertek.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
 
+
+@Component
 public class DataGenerator implements CommandLineRunner {
 
     @Autowired
@@ -34,7 +37,7 @@ public class DataGenerator implements CommandLineRunner {
 
         a1.setPerson(p1);
         a2.setPerson(p1);
-        a3.setPerson(p1);z
+        a3.setPerson(p1);
 
 
         adressRepository.save(a1);
