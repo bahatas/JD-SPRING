@@ -44,7 +44,7 @@ public class DataGenerator implements CommandLineRunner {
         cinemaRepository.save(cinema3);
 
 
-        filmRepository.save(film2);
+
 
     }
 }
