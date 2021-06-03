@@ -12,14 +12,20 @@ public interface RegionRepository extends JpaRepository<Region,Integer> {
     List<Region> findByCountry(String country);
 
     //display all regions in canada, without dublicate
+    List<Region> findDistinctByCountry(String country);
 
     //Dosplay all regions with country name includes 'United'
-
+    List<Region> findByCountryContaining (String country);
 
 
     //Dosplay all regions with country name includes 'United' in order
 
+    List<Region> findByCountryContainingOrderByCountry (String country);
+
     //Display top 2 reegions in Canada
+
+    List<Region> findTop2ByCountry(String country);
+
 
     //
 
