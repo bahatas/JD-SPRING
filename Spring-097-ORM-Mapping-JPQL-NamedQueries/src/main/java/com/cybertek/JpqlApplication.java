@@ -28,7 +28,13 @@ public class JpqlApplication {
 
         System.out.println("employeeRepository.getEmployeeSalary() = " + employeeRepository.getEmployeeSalary());
 
+        System.out.println("employeeRepository.readEmployeeBySalary(100000) = " + employeeRepository.readEmployeeBySalary(100000));
 
 
+        System.out.println("employeeRepository.getEmployeeByEmailIsNotNull() = " + employeeRepository.getEmployeeByEmailIsNotNull().toString());
+
+        System.out.println("employeeRepository.getEmployeeOrderBySalary() = " + employeeRepository.getEmployeeOrderBySalary());
+
+        System.out.println("employeeRepository.getEmployeeByEmailAndSalary(\"amcnee1@google.es\",56752) = " + employeeRepository.getEmployeeByEmailAndSalary("amcnee1@google.es",56752));
     }
 }
