@@ -22,5 +22,13 @@ public class JpqlApplication {
     @PostConstruct
     public void testEmployee(){
 
+        System.out.println("employeeRepository.getEmployeeDetail() = " + employeeRepository.getEmployeeDetail());
+
+        System.out.println("employeeRepository.getEmployeeSalary(\"dtrail8@tamu.edu\") = " + employeeRepository.getEmployeeSalary("dtrail8@tamu.edu"));
+
+        System.out.println("employeeRepository.getEmployeeSalary() = " + employeeRepository.getEmployeeSalary());
+
+
+
     }
 }
