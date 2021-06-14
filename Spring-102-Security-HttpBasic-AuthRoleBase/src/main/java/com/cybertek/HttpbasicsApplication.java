@@ -8,6 +8,8 @@ public class HttpbasicsApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(HttpbasicsApplication.class, args);
+
+        System.out.println("Java is not here");
     }
 
 }
