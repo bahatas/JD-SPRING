@@ -3,9 +3,13 @@ package com.cybertek.controller;
 
 import com.cybertek.entity.Product;
 import com.cybertek.servise.ProductService;
+import jdk.nashorn.internal.runtime.Version;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 
 import javax.xml.ws.Response;
@@ -46,9 +50,15 @@ public class ProductController {
     //crate Produuct
 
     @PostMapping
-    public List<Product> crateProduct(@RequestBody Product product) {
+    public ResponseEntity<List<Product>>  crateProduct(@RequestBody Product product) {
 
-        return productService.createProducts(product);
+         List <Product> set = productService.createProducts(product);
+
+         return ResponseEntity
+                 .status(HttpStatus.CREATED)
+                 .header("Version","Cybertek.V1")
+                 .header("Operation","Create")
+                 .body(set);
     }
 
     //Delete Procduct
@@ -62,12 +72,18 @@ public class ProductController {
 
     // update Product
     @PutMapping(value = "/{id}")
-    public @ResponseBody
-    List<Product> updateProduct(@PathVariable("id") long id, @RequestBody Product product) {
+    public ResponseEntity<List<Product>> updateProduct(@PathVariable("id") long id, @RequestBody Product product) {
 
-        productService.updateProducts(id, product);
+        MultiValueMap<String,String> map = new LinkedMultiValueMap<>();
 
-        return productService.updateProducts(id, product);
+        map.add("Version", "Cybertek.v1");
+        map.add("operation","Update");
+
+
+
+        List <Product> list =  productService.updateProducts(id, product);
+
+        return new ResponseEntity<>(list,map,HttpStatus.OK);
     }
 
 }
