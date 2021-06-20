@@ -3,7 +3,10 @@ package com.cybertek.bootstrap;
 import com.cybertek.entity.Product;
 import com.cybertek.repository.ProductRepository;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
 
+
+@Component
 public class DataGenerator implements CommandLineRunner {
 
     public DataGenerator(ProductRepository productRepository) {
