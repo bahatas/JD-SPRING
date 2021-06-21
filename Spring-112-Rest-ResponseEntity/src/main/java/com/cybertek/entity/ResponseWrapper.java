@@ -16,7 +16,7 @@ public class ResponseWrapper {
     private Integer code;
     private Object data;
 
-    public ResponseWrapper(boolean success, String message, Integer code, Object data) {
+    public ResponseWrapper( String message, Object data) {
 
         this.success = true;
         this.message = message;
@@ -25,7 +25,7 @@ public class ResponseWrapper {
     }
 
 
-    public ResponseWrapper(boolean success, String message, Integer code) {
+    public ResponseWrapper(String message) {
         this.success = true;
         this.message = message;
         this.code =  HttpStatus.OK.value();

@@ -2,17 +2,16 @@ package com.cybertek.controller;
 
 
 import com.cybertek.entity.Product;
+import com.cybertek.entity.ResponseWrapper;
 import com.cybertek.servise.ProductService;
-import jdk.nashorn.internal.runtime.Version;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 
-import javax.xml.ws.Response;
+
 import java.util.List;
 
 @RestController
@@ -90,4 +89,21 @@ public class ProductController {
         return new ResponseEntity<>(list,map,HttpStatus.OK);
     }
 
+
+    @GetMapping("/read")
+    public ResponseEntity<ResponseWrapper> readAllProd(){
+        return ResponseEntity
+        .ok(new ResponseWrapper("products successfully retrived",productService.getProducts()));
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<ResponseWrapper> deleteProduct2(){
+        return ResponseEntity.ok(new ResponseWrapper("product successfully deleted"));
+    }
+
+    @DeleteMapping("/delete2/{id}")
+    public ResponseEntity<ResponseWrapper> deleteProduct3(){
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(new ResponseWrapper("product successfully deleted"));
+
+    }
 }
