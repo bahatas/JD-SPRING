@@ -4,21 +4,32 @@ package com.cybertek.controller;
 import com.cybertek.entity.MovieCinema;
 import com.cybertek.repository.GenreRepository;
 import com.cybertek.repository.MovieCinemaRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
 
+@RestController
 public class WebFluxController {
 
-    @Autowired
-    MovieCinemaRepository cinemaRepository;
-    @Autowired
-    GenreRepository genreRepository;
+
     private final WebClient webClient = WebClient.builder().baseUrl("http://locahost:8082").build();
 
-    public Flux<MovieCinema> readAllCinemaFlux() {
-        return Flux.fromIterable(cinemaRepository.findAll());
+
+    MovieCinemaRepository movieCinemaRepository;
+    GenreRepository genreRepository;
+
+    public WebFluxController(MovieCinemaRepository cinemaRepository, GenreRepository genreRepository) {
+        this.movieCinemaRepository = cinemaRepository;
+        this.genreRepository = genreRepository;
     }
+
+    @GetMapping("/flux-movie-cinemas")
+    public Flux<MovieCinema> readAllCinemaFlux() {
+        return Flux.fromIterable(movieCinemaRepository.findAll());
+    }
+
+
 
 
 //        private WebClient webClient = WebClient.builder().baseUrl("http://localhost:8080").build();
