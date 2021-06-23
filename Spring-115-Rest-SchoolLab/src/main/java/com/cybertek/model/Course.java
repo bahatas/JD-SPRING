@@ -1,7 +1,6 @@
-package com.cybertek.entity;
+package com.cybertek.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,5 +23,6 @@ public class Course extends BaseEntity {
 
     @Column(columnDefinition = "text")
     private String description;
+
 
 }

@@ -1,25 +1,31 @@
-package com.cybertek.entity;
+package com.cybertek.model;
 
 import com.cybertek.enums.Status;
-import lombok.*;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
-@Table(name = "student")
 @Entity
+@Table(name = "student")
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
-public class Student extends BaseEntity{
+@NoArgsConstructor
+@JsonIgnoreProperties(value={"hibernateLazyInitializer"},ignoreUnknown = true)
+public class Student extends BaseEntity {
 
     private String firstName;
     private String lastName;
     private String email;
     private String username;
 
-
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
     private LocalDate birthday;
@@ -29,11 +35,13 @@ public class Student extends BaseEntity{
     @Enumerated(EnumType.STRING)
     private Status status;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinColumn(name = "address_id")
     private Address address;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "parent_id")
     private Parent parent;
+
+
 }

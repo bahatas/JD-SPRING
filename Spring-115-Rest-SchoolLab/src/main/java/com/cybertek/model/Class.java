@@ -1,4 +1,4 @@
-package com.cybertek.entity;
+package com.cybertek.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
@@ -27,5 +27,9 @@ public class Class extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "teacher_id")
     private Teacher teacher;
+
+
+
+
 
 }

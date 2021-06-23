@@ -1,6 +1,15 @@
 package com.cybertek.enums;
 
+
 public enum Status {
 
-    ACTIVE,FINISHED,PENDING,MOVED
+    ACTIVE("ACTIVE"),FINISHED,PENDING,MOVED;
+
+    Status(String active){
+
+    }
+
+    Status() {
+
+    }
 }
