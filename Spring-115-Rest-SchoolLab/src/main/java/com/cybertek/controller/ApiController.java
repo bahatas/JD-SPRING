@@ -36,4 +36,12 @@ public class ApiController {
 
     }
 
+    @GetMapping("/students")
+    public ResponseEntity<ResponseWrapper> readAllStudents2() {
+
+        return ResponseEntity
+                .ok(new ResponseWrapper("Stundents retrieved successfully",studentRepository.findAll()));
+
+    }
+
 }
