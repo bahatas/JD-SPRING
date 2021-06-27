@@ -1,0 +1,137 @@
+openapi: 3.0.0
+info:
+  version: '1.0'
+  title: 'Cybertek Api Documentation'
+  description: 'Open Api Training'
+  contact:
+    name: baha
+servers:
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/OpenAPi_1.0/OPENAPI/1.0
+  - description: QA Server
+    url: https://qa.dev.cybertek.com
+  - description: Development Server
+    url:  https://dev.cybertek.com
+
+paths:
+  /v1/courses:
+    get:
+      description: Return all courses from list
+      responses:
+        '200':
+          description: List of Courses
+        '400':
+          description: No Course Found
+  /v1/students:
+    get:
+      responses:
+        '200':
+          description: List Of Students
+  /v1/students/{studentId}:
+    get:
+      summary: Get student by Id
+      description: Get a **Single** student by its id
+      tags:
+        - Students
+      parameters:
+        - name: studentId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: List Of Students
+          content:
+            application:/json:
+              schema:
+                $ref: '#/components/schemas/StudentList'
+    put:
+      summary: Update Student
+      description: Update Student by Id
+      tags:
+        - Students
+      parameters:
+        - name: studentId
+          in: path
+          required : true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Student'
+      responses:
+        '200':
+          description: Student updated
+    delete:
+      summary: Delete Student
+      description: Delete Student by Id
+      tags:
+        -student
+      parameters:
+        - name: studentId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Student Deleted
+        '400':
+          description: Bad Request
+components:
+  schemas:
+    Address:
+      type: object
+      properties:
+        street:
+          type: string
+          example: 7925 Jones Branch Dr
+        city:
+          type: string
+          example: McLean
+        zipCode:
+          type: integer
+          example: 22102
+        state:
+          type: string
+          #enum: [VA,NY,TX,CA] this type also available
+          enum:
+            - VA
+            - NY
+            - TX
+            - CA
+          description: adress object
+    Student:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        firstname:
+          type: string
+        lastname:
+          type: string
+        address:
+          $ref: '#/components/schemas/Address'
+      description: Student object
+    StudentList:
+      type: array
+      description: List of students
+      items:
+        $ref: '#/components/schemas/Student'
+
+
+
+
+
+tags:
+  - name: New Tag 1
