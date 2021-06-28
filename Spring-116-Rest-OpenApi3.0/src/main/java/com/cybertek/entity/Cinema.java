@@ -1,5 +1,6 @@
 package com.cybertek.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,12 +15,14 @@ import javax.persistence.ManyToOne;
 @Setter
 @Getter
 @NoArgsConstructor
+@JsonIgnoreProperties(value={"hibernateLazyInitializer"},ignoreUnknown = true)
 public class Cinema extends BaseEntity {
 
     private String name;
     private String sponsoredName;
 
     @ManyToOne(fetch = FetchType.LAZY,cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    @JsonIgnore
     private Location location;
 
     public Cinema(String name, String sponsoredName) {

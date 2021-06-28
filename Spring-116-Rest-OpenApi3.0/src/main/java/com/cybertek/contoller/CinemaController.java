@@ -2,6 +2,7 @@ package com.cybertek.contoller;
 
 import com.cybertek.entity.Cinema;
 import com.cybertek.repository.CinemaRepository;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/cinema")
 @Tag(name="Cinema",description="Cinema API")
+@JsonIgnoreProperties(value={"hibernateLazyInitializer","teacher"},ignoreUnknown = true)
 public class CinemaController {
 
     @Autowired
