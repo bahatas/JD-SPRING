@@ -16,32 +16,29 @@ import java.util.function.Function;
 @Component
 public class JWTUtil {
 
-
     @Value("${security.jwt.secret-key}")
     private String secret = "cybertek";
 
-    public String generateToken(User user) {
+    public String generateToken(User user){
 
-        Map<String, Object> claims = new HashMap<>();
-        claims.put("username", user.getUsername());
-        claims.put("email", user.getEmail());
-
-        return createToken(claims, user.getUsername());
-
-
+        Map<String,Object> claims = new HashMap<>();
+        claims.put("username",user.getUsername());
+        claims.put("email",user.getEmail());
+        return createToken(claims,user.getUsername());
     }
 
-    private String createToken(Map<String, Object> claims, String username) {
-
+    private String createToken(Map<String,Object> claims,String username){
 
         return Jwts
                 .builder()
                 .setClaims(claims)
                 .setSubject(username)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 10)) //10 hours token validity
-                .signWith(SignatureAlgorithm.HS256, secret).compact();
+                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 *10)) //10 hours token validity
+                .signWith(SignatureAlgorithm.HS256,secret).compact();
+
     }
+
     private Claims extractAllClaims(String token){
         return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
     }
@@ -68,6 +65,16 @@ public class JWTUtil {
         final String username = extractUsername(token);
         return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
     }
+
+
+
+
+
+
+
+
+
+
 
 
 }

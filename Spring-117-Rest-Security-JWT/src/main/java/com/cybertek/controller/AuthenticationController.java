@@ -27,20 +27,20 @@ public class AuthenticationController {
     JWTUtil jwtUtil;
 
 
-    @PostMapping
+    @PostMapping("/authenticate")
     public ResponseEntity<ResponseWrapper> doLogin(@RequestBody AuthenticationRequest authenticationRequest){
 
-        String username=authenticationRequest.getUsername();
         String password = authenticationRequest.getPassword();
+        String username = authenticationRequest.getUsername();
 
         User foundUser = userService.readByUsername(username);
 
-        // create token
-        UsernamePasswordAuthenticationToken authenticationToken= new UsernamePasswordAuthenticationToken(username,password);
+        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(username,password);
         authenticationManager.authenticate(authenticationToken);
 
         String jwtToken = jwtUtil.generateToken(foundUser);
 
-        return ResponseEntity.ok(new ResponseWrapper("Login Successfull!",jwtToken));
+        return ResponseEntity.ok(new ResponseWrapper("Login Succesfull!",jwtToken));
+
     }
 }
