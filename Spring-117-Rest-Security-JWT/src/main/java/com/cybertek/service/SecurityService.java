@@ -1,7 +1,6 @@
-package com.cybertek.config;
+package com.cybertek.service;
 
 import com.cybertek.entity.User;
-import com.cybertek.service.UserService;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
