@@ -2,6 +2,7 @@ package com.cybertek.servise;
 
 import com.cybertek.entity.Product;
 
+
 import java.util.List;
 
 public interface ProductService {
@@ -12,6 +13,7 @@ public interface ProductService {
     List<Product> createProducts(Product product);
     List<Product> updateProducts(long id,Product product);
     Product getProduct(long id);
+
 
 
 
