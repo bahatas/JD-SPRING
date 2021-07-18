@@ -3,10 +3,7 @@ package com.cinema.entity;
 import com.cinema.enums.State;
 import com.cinema.enums.Type;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -24,7 +21,10 @@ public class Movie extends BaseEntity{
 
     String summary;
 
-    @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.LAZY)
+    @JoinTable(name = "cinema_movie_join_table",
+            joinColumns = {@JoinColumn(name = "cinema_id")},
+            inverseJoinColumns = {@JoinColumn(name = "movie_id")})
     List<Cinema> cinema;
 
 
