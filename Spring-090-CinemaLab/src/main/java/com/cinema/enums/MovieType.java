@@ -1,6 +1,6 @@
 package com.cinema.enums;
 
-public enum Type {
+public enum MovieType {
 
 
     PREMIER,REGULAR;
