@@ -12,7 +12,6 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @NoArgsConstructor
-
 public class MovieCinema extends BaseEntity {
 
     @Column(columnDefinition = "TIMESTAMP")
