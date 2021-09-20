@@ -1,4 +1,4 @@
-package com.cybertek.spring130unitttestingjunit5.test;
+package com.cybertek.spring130unittestingjunit5.test;
 
 
 import org.junit.jupiter.api.AfterEach;

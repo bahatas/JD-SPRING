@@ -1,4 +1,4 @@
-package com.cybertek.spring130unitttestingjunit5;
+package com.cybertek.spring130unittestingjunit5;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
