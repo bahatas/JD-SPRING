@@ -1,5 +1,10 @@
 package com.cinema.enums;
 
 public enum UserRole {
-    USER,COSTUMER;
+    USER("User"),ADMIN("Admin");
+
+
+   UserRole(String userRole) {
+
+    }
 }

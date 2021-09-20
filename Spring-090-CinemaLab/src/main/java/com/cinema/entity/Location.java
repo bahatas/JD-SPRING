@@ -2,17 +2,18 @@ package com.cinema.entity;
 
 
 import javax.persistence.Entity;
+import java.math.BigDecimal;
 
 @Entity
 public class Location extends BaseEntity {
 
-    String name;
-    String latitude;
-    String longtitude;
-    String country;
-    String city;
-    String state;
-    String postalCode;
-    String adress;
+    private  String name;
+    private BigDecimal latitude;
+    private BigDecimal  longtitude;
+    private String country;
+    private String city;
+    private String state;
+    private  String postalCode;
+    private String address;
 
 }
