@@ -1,13 +1,13 @@
-package com.cybertek.demospring130unitttestingjunit5;
+package com.cybertek.spring130unitttestingjunit5;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DemoSpring130UnittTestingJunit5Application {
+public class Spring130UnittTestingJunit5Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(DemoSpring130UnittTestingJunit5Application.class, args);
+        SpringApplication.run(Spring130UnittTestingJunit5Application.class, args);
     }
 
 }
