@@ -16,9 +16,13 @@ public class CheckingAccount {
 
     }
 
+    public double deposit(double amount){
+        balance+=amount;
+        return balance;
+    }
     public double withDraw(double amount){
         if(amount<=balance){
-            balance=amount;
+            balance-=amount;
         }else{
             System.out.println("Insufficient fund in account");
         }
