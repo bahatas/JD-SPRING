@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class CalculatorTest {
 
@@ -27,6 +28,6 @@ class CalculatorTest {
     @Test
     public void  test1(){
 
-        //fail("Todo");
+       assertTrue(Calculator.);
     }
 }
