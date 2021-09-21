@@ -42,4 +42,11 @@ class CheckingAccountTest {
         assertEquals(-65,checkingAccount.purchase("Shoes",130));
         //fail
     }
+
+    @Test
+    void withdraw_branch_testing(){
+        assertThrows(IllegalArgumentException.class,()-> {
+            checkingAccount.withdraw_branch(600, false);
+        }); // we need an executible definiton after lamba sign
+    }
 }
