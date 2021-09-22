@@ -1,7 +1,7 @@
 package com.cybertek.service;
 
 
-import com.ticketing.dto.UserDTO;
+import com.cybertek.dto.UserDTO;
 
 import java.util.List;
 

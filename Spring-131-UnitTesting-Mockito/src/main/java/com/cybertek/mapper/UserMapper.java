@@ -1,7 +1,7 @@
 package com.cybertek.mapper;
 
-import com.ticketing.dto.UserDTO;
-import com.ticketing.entity.User;
+import com.cybertek.dto.UserDTO;
+import com.cybertek.entity.User;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 

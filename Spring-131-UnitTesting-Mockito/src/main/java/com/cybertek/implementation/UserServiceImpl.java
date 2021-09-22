@@ -1,11 +1,11 @@
 package com.cybertek.implementation;
 
-import com.ticketing.dto.UserDTO;
-import com.ticketing.entity.User;
-import com.ticketing.mapper.UserMapper;
-import com.ticketing.repository.UserRepository;
-import com.ticketing.service.UserService;
-import lombok.var;
+import com.cybertek.dto.UserDTO;
+import com.cybertek.entity.User;
+import com.cybertek.mapper.UserMapper;
+import com.cybertek.repository.UserRepository;
+import com.cybertek.service.UserService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -21,6 +21,7 @@ public class UserServiceImpl  implements UserService {
     UserRepository userRepository;
 
 
+    @Autowired
     UserMapper userMapper;
 
     public UserServiceImpl(UserRepository userRepository, UserMapper userMapper) {
@@ -30,7 +31,7 @@ public class UserServiceImpl  implements UserService {
 
     @Override
     public List<UserDTO> ListAllUSer() {
-     var list = userRepository.findAll(Sort.by("firstName"));
+        List<User> list = userRepository.findAll(Sort.by("firstName"));
 
         //convert entity to DTO
         return list.stream().map(each->{return userMapper.convertToDto(each); }).collect(Collectors.toList());
@@ -62,5 +63,6 @@ public class UserServiceImpl  implements UserService {
     @Override
     public void delete(String username) {
 
+        userRepository.deleteByUsername(username);
     }
 }

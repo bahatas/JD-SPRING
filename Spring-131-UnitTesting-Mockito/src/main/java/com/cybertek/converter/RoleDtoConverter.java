@@ -1,7 +1,7 @@
 package com.cybertek.converter;
 
-import com.ticketing.dto.RoleDTO;
-import com.ticketing.service.RoleService;
+import com.cybertek.dto.RoleDTO;
+import com.cybertek.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationPropertiesBinding;
 import org.springframework.core.convert.converter.Converter;

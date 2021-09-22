@@ -1,10 +1,10 @@
 package com.cybertek.implementation;
 
-import com.ticketing.dto.RoleDTO;
-import com.ticketing.mapper.RoleMapper;
-import com.ticketing.repository.RoleRepository;
-import com.ticketing.service.RoleService;
-import lombok.var;
+import com.cybertek.dto.RoleDTO;
+import com.cybertek.entity.Role;
+import com.cybertek.mapper.RoleMapper;
+import com.cybertek.repository.RoleRepository;
+import com.cybertek.service.RoleService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,13 +23,15 @@ public class RoleServiceImpl  implements RoleService {
 
     @Override
     public List<RoleDTO> listAllRoles() {
-        var list =roleRepository.findAll();
+        List<Role> list = roleRepository.findAll();
         return list.stream().map(each->{return  roleMapper.convertToDto(each);}).collect(Collectors.toList());
     }
 
     @Override
     public RoleDTO findById(Long id) {
-      var role = roleRepository.findById(id).get();
-       return roleMapper.convertToDto(role) ;
+        Role role = roleRepository.findById(id).get();
+
+
+        return roleMapper.convertToDto(role) ;
     }
 }

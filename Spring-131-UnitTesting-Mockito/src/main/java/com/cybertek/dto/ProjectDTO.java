@@ -1,6 +1,6 @@
 package com.cybertek.dto;
 
-import com.ticketing.utils.Status;
+import com.cybertek.utils.Status;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

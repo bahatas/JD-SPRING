@@ -1,8 +1,8 @@
 package com.cybertek.converter;
 
 
-import com.ticketing.dto.UserDTO;
-import com.ticketing.service.UserService;
+import com.cybertek.dto.UserDTO;
+import com.cybertek.service.UserService;
 import org.springframework.boot.context.properties.ConfigurationPropertiesBinding;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
