@@ -1,36 +1,37 @@
 package com.cybertek.entity;
 
-
-import com.cybertek.utils.Gender;
-import lombok.AllArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 
-
-@NoArgsConstructor
-@AllArgsConstructor
-@Setter
-@Getter
 @Entity
-@Table(name = "users")
+@Getter
+@Setter
+@NoArgsConstructor
+@Table(name = "user_account")
+@JsonIgnoreProperties(value={"hibernateLazyInitializer"},ignoreUnknown = true)
 public class User extends BaseEntity {
 
-    private String firstName;
-    private String lastName;
-    private String userName;
+    private String email;
+
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
-    private boolean enabled;
-    private String phone;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "role_id")
-    private Role role;
+    private String username;
 
-    @Enumerated(EnumType.STRING)
-    private Gender gender;
+    @OneToOne(fetch = FetchType.LAZY,cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    @JoinColumn(name = "account_details_id")
+    @JsonManagedReference
+    private Account account;
 
-
+    public User(String email, String password, String username) {
+        this.email = email;
+        this.password = password;
+        this.username = username;
+    }
 }
