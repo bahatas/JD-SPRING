@@ -8,7 +8,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -27,11 +26,20 @@ class UserServiceImplTest {
     @Test
     void delete() {
 
-        userService.delete("r@cybertek.com");
+        //I dont care this data is correct.
+        userService.deleteByUserName("r@cybertek.com");
 
-        verify(userRepository).deleteByUsername("r@cybertek.com");
-        verify(userRepository,times(2)).deleteByUsername("r@cybertek.com");
-        verify(userRepository,atLeastOnce()).deleteByUsername("r@cybertek.com");
-        verify(userRepository,atMost(2)).deleteByUsername("r@cybertek.com");
+        verify(userRepository).deleteByUserName("r@cybertek.com");
+        //it runs 2 times
+        //verify(userRepository,times(2)).deleteByUserName("r@cybertek.com");
+
+        verify(userRepository,atLeastOnce()).deleteByUserName("r@cybertek.com");
+        verify(userRepository,atMost(2)).deleteByUserName("r@cybertek.com");
+    }
+
+    @Test
+    void test1(){
+
+        verify(userService.findByUserName("mike@cybertek.com"));
     }
 }

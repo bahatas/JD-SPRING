@@ -5,6 +5,7 @@ import com.cybertek.entity.User;
 import com.cybertek.repository.AccountRepository;
 import com.cybertek.repository.UserRepository;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -23,6 +24,11 @@ public class HomeController {
     @GetMapping("/users")
     public List<User> readAllUsers(){
         return userRepository.findAll();
+    }
+
+    @GetMapping("/users/{id}")
+    public User readAllUsers(@PathVariable Long id){
+        return userRepository.findById(id).get();
     }
 
     @GetMapping("/accounts")

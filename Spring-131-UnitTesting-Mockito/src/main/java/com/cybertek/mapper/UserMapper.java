@@ -1,28 +1,32 @@
 package com.cybertek.mapper;
 
+import com.cybertek.dto.RoleDTO;
 import com.cybertek.dto.UserDTO;
+import com.cybertek.entity.Role;
 import com.cybertek.entity.User;
+import com.cybertek.repository.UserRepository;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class UserMapper {
-    
-  ModelMapper modelMapper;
 
+    private ModelMapper modelMapper;
+    @Autowired
+    UserRepository userRepository;
     public UserMapper(ModelMapper modelMapper) {
         this.modelMapper = modelMapper;
     }
 
-    //dto to entity
-    public User convertToEntity(UserDTO userDTO){
-        return modelMapper.map(userDTO,User.class);
+    public User convertToEntity(UserDTO dto){
+
+         return modelMapper.map(dto,User.class);
+
     }
 
-    //entitiy to user
-    public UserDTO convertToDto(User userEntity){
-        return modelMapper.map(userEntity,UserDTO.class);
+    public UserDTO convertToDto(User entity){
+
+        return modelMapper.map(entity,UserDTO.class);
     }
-
-
 }

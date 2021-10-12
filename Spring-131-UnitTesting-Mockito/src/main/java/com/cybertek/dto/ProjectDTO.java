@@ -1,22 +1,27 @@
 package com.cybertek.dto;
 
-import com.cybertek.utils.Status;
+import com.cybertek.enums.Status;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 
-
-@Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class ProjectDTO {
 
+    private Long id;
     private String projectName;
     private String projectCode;
     private UserDTO assignedManager;
+
+
+
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate startDate;
 
@@ -25,5 +30,9 @@ public class ProjectDTO {
 
     private String projectDetail;
     private Status projectStatus;
+
+    private int completeTaskCounts;
+    private int unfinishedTaskCounts;
+
 
 }

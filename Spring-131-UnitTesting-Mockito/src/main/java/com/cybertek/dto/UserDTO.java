@@ -1,6 +1,6 @@
 package com.cybertek.dto;
 
-import com.cybertek.utils.Gender;
+import com.cybertek.enums.Gender;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,6 +11,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class UserDTO {
+
+    private Long id;
 
     private String firstName;
     private String lastName;

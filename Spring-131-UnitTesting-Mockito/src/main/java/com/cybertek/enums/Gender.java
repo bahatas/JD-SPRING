@@ -1,6 +1,7 @@
-package com.cybertek.utils;
+package com.cybertek.enums;
 
 public enum Gender {
+
     MALE("Male"),FEMALE("Female");
 
     private final String value;
@@ -12,4 +13,5 @@ public enum Gender {
     public String getValue(){
         return value;
     }
+
 }
